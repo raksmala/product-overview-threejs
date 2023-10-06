@@ -1,0 +1,40 @@
+:root {
+    --color-white: #ffffff;
+    --color-black: #171817;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    overflow: hidden;
+
+    &.black {
+        background-color: var(--color-black);
+        color: var(--color-white);
+        transition: background-color 1.5s ease-in-out;
+    }
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+.eclipse {
+    background: var(--color-white);
+    width: 50%;
+    height: 15%;
+    opacity: 0.6;
+    filter: blur(265px);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
