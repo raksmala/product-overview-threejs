@@ -36,7 +36,7 @@ scene.add(directionalLight2)
 const loader = new GLTFLoader()
 let customModel
 
-loader.load('/assets/cgaxis_airpods_max_silver_blender2.gltf', (gltf) => {
+loader.load('/assets/cgaxis_airpods_max_silver_blender.gltf', (gltf) => {
     customModel = gltf.scene
     
     // Constants for materials
