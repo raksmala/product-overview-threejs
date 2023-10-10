@@ -41,7 +41,7 @@ loader.load('/assets/cgaxis_airpods_max_silver_blender.gltf', (gltf) => {
     
     // Constants for materials
     const SIDES_MATERIAL = new THREE.MeshStandardMaterial({
-        color: 0xd4d5d4,
+        color: 0x686668,
         metalness: 0.5,
         roughness: 0.1
     });
@@ -52,16 +52,39 @@ loader.load('/assets/cgaxis_airpods_max_silver_blender.gltf', (gltf) => {
         roughness: 0.1
     });
 
+    const WHITE_TOP_MATERIAL = new THREE.MeshStandardMaterial({
+        color: 0x1e1f1d,
+        metalness: 0,
+        roughness: 1
+    });
+
+    const EARBUDS_MATERIAL = new THREE.MeshStandardMaterial({
+        color: 0x212122,
+    })
+
+    const SIDES = 'airpods_max_silver_sides'
+    const CHROME = 'airpods_max_silver_chrome'
+    const WHITE_TOP = 'airpods_max_silver_white_top'
+    const EARBUDS = 'airpods_max_silver_earbuds'
+
     // Traverse through the model and apply materials based on object names or other criteria
     customModel.traverse((child) => {
         if (child.isMesh) {
             // Check if the mesh belongs to the ear sides
-            if (child.name === 'airpods_max_silver_sides') {
+            if (child.name === SIDES) {
                 child.material = SIDES_MATERIAL;
                 child.castShadow = true;
                 child.receiveShadow = true;
-            } else if (child.name === 'airpods_max_silver_chrome') {
+            } else if (child.name === CHROME) {
                 child.material = CHROME_MATERIAL;
+                child.castShadow = true;
+                child.receiveShadow = true;
+            } else if (child.name === WHITE_TOP) {
+                child.material = WHITE_TOP_MATERIAL;
+                child.castShadow = true;
+                child.receiveShadow = true;
+            } else if (child.name === EARBUDS) {
+                child.material = EARBUDS_MATERIAL;
                 child.castShadow = true;
                 child.receiveShadow = true;
             }
@@ -84,14 +107,14 @@ loader.load('/assets/cgaxis_airpods_max_silver_blender.gltf', (gltf) => {
  * Sizes
  */
 const sizes = {
-    width: window.innerWidth,
+    width: window.innerWidth / 2,
     height: window.innerHeight
 }
 
 window.addEventListener('resize', () =>
 {
     // Update sizes
-    sizes.width = window.innerWidth
+    sizes.width = window.innerWidth / 2
     sizes.height = window.innerHeight
 
     // Update camera
